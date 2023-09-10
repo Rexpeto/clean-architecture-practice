@@ -1,18 +1,25 @@
+import { EmptyMortyState } from "@/models";
 import { createUser } from "@/redux/slices/user.slice";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { fetchRickAndMorty, rickAndMortyUrl } from "../services";
 
 const CreateHomeButton = () => {
+  const [morty, setMorty] = useState(EmptyMortyState);
   const dispath = useDispatch();
 
+  const getMorty = async () => {
+    const result = await fetchRickAndMorty(rickAndMortyUrl);
+
+    setMorty(result);
+  };
+
+  useEffect(() => {
+    getMorty();
+  });
+
   const dispathAction = () => {
-    dispath(
-      createUser({
-        id: "1",
-        name: "Carlos",
-        email: "Zzq8J@example.com",
-        password: "123456",
-      })
-    );
+    dispath(createUser(morty));
   };
 
   return (
