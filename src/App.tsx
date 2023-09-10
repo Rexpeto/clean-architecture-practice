@@ -13,8 +13,8 @@ const App = () => {
         </div>
 
         <div className="flex gap-2 items-center">
-          <h3>Email:</h3>
-          <p>{user?.email}</p>
+          <h3>Status:</h3>
+          <p>{user?.status}</p>
         </div>
       </div>
       <Home />

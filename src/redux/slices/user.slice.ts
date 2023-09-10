@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserEmptyState } from "@/models";
+import { EmptyMortyState } from "@/models";
 
 export const userSlice = createSlice({
   name: "user",
-  initialState: UserEmptyState,
+  initialState: EmptyMortyState,
   reducers: {
     createUser: (state, action) => {
       return action.payload;
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
       return formattedData;
     },
     resetUser: () => {
-      return UserEmptyState;
+      return EmptyMortyState;
     },
   },
 });

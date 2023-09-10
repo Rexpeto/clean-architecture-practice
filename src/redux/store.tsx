@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { User } from "@/models";
+import { MortyState } from "@/models";
 import userReducer from "./slices/user.slice";
 
 export interface AppStore {
-  user: User;
+  user: MortyState;
 }
 
 export default configureStore<AppStore>({
